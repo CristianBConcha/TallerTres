@@ -1,0 +1,52 @@
+@startuml
+abstract Instrumento {
+-nombre : String
+-codigo : int
+-precio : float
+-stock : int
+-material : String
+}
+Class Percusion {
+-tipoInstrumentoPercusion : String
+-tipoPercusion : String
+-altura : float
+}
+Class Cuerda{
+-tipoInstrumentoCuerda : String
+-tipoCuerda : String
+-numeroCuerdas : int
++Cuerda(String nombre, String material, String tipoInstrumentoCuerda, String tipoCuerda, int numeroCuerdas)
+}
+Class Viento{
+-tipoInstrumentoViento : String
+}
+Class Sistema {
+}
+Class ListaInstrumento {
+-cantMax : int
+-cantActual : int
+-intrumentos Instrumento [ ]
+}
+
+Class SistemaImpl {
++instrumentos : ListaInstrumento
++SistemaImpl()
+}
+interface Sistema {
++inciar():
++agregarInstrumento():
++venderInstrumento():
++consultarInventario():
++leerArchivo();
++guardarCambio();
++cerrar():
+}
+
+Viento --|> Instrumento
+Cuerda -|> Instrumento
+Percusion --|> Instrumento
+ListaInstrumento o-- Instrumento
+SistemaImpl->ListaInstrumento : Utiliza
+SistemaImpl -.|> Sistema : Implements
+
+@enduml

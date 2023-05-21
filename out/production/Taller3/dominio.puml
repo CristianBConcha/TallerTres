@@ -1,0 +1,17 @@
+@startuml
+Entity Trabajador {
+}
+
+Entity Instrumento {
+nombre
+codigo
+precio
+stock
+tipo
+material
+}
+
+
+Trabajador "1" --> "1...*" Instrumento : Manipula
+
+@enduml
